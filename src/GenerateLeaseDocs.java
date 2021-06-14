@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class main {
+public class GenerateLeaseDocs {
     public static void main(String[] args) throws IOException {
         PDDocument doc = new PDDocument(new COSDocument());
         JSONObject input = new JSONObject();
@@ -50,3 +50,5 @@ public class main {
         }
     }
 }
+
+
