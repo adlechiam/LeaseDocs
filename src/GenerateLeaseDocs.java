@@ -18,10 +18,10 @@ public class GenerateLeaseDocs {
         input.put("o_fname", "John");
         input.put("o_lname", "Doe");
         System.out.println(input);
-        fillPDF(doc, input);
+        fillPDF(input);
     }
 
-    public static void fillPDF(PDDocument doc, JSONObject input) throws IOException {
+    public static void fillPDF(JSONObject input) throws IOException {
         try {
             PDDocument pDDocument = PDDocument.load(new File("/Users/adlechiam/Desktop/ld/lease.pdf"));
             PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
@@ -49,6 +49,31 @@ public class GenerateLeaseDocs {
             e.printStackTrace();
         }
     }
+    public static void generateLease(JSONObject leaseJson) {
+        //TODO
+    }
+
+    public static void generateAddendum(JSONObject addendumJson) {
+        //TODO
+    }
+
+    public static void generateFormK(JSONObject formkJson) {
+        //TODO
+    }
+
+    public static void generateRECBCForm(JSONObject recbcJson) {
+        //TODO
+    }
+
+    public static void generateEnerpro(JSONObject enerproJson) {
+        //TODO
+    }
+
+    public static void generateWelcomeSheet(JSONObject welcomeSheet) {
+        //TODO
+    }
+
+
 }
 
 
