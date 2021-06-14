@@ -7,7 +7,6 @@ import org.json.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class GenerateLeaseDocs {
     public static void main(String[] args) throws IOException {
@@ -18,18 +17,18 @@ public class GenerateLeaseDocs {
         input.put("o_fname", "John");
         input.put("o_lname", "Doe");
         System.out.println(input);
-        fillPDF(input);
+        String docType = "_LEASE_";
+        fillPDF(input, "/Users/adlechiam/Desktop/ld/lease.pdf", docType);
     }
 
-    public static void fillPDF(JSONObject input) throws IOException {
+    public static void fillPDF(JSONObject input, String pathname, String docType) throws IOException {
         try {
-            PDDocument pDDocument = PDDocument.load(new File("/Users/adlechiam/Desktop/ld/lease.pdf"));
+            PDDocument pDDocument = PDDocument.load(new File(pathname));
             PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
 
-            List<PDField> fields = pDAcroForm.getFields();
-            for (int i = 0; i < fields.size(); i++){
-                System.out.println(fields.get(i).getFullyQualifiedName());
-            }
+//            for (int i = 0; i < fields.size(); i++){
+//                System.out.println(fields.get(i).getFullyQualifiedName());
+//            }
 
             PDField field = pDAcroForm.getField("owner1_lname");
             field.setValue(input.getString("o_lname"));
@@ -58,6 +57,10 @@ public class GenerateLeaseDocs {
     }
 
     public static void generateFormK(JSONObject formkJson) {
+        //TODO
+    }
+
+    public static void generatePADForm(JSONObject PADJson) {
         //TODO
     }
 
